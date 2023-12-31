@@ -1,6 +1,13 @@
 import { EntityHelper } from 'src/utils/entity-helper';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Region } from '../../regions/entities/region.entity';
+import { Place } from '../../places/entities/place.entity';
 
 @Entity()
 export class City extends EntityHelper {
@@ -12,4 +19,7 @@ export class City extends EntityHelper {
 
   @ManyToOne(() => Region, (region) => region.cities)
   region: Region;
+
+  @OneToMany(() => Place, (place) => place.city)
+  places: Place[];
 }
