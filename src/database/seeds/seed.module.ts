@@ -13,8 +13,11 @@ import { RegionSeedModule } from './region/region-seed.module';
 
 import { CitySeedModule } from './city/city-seed.module';
 
+import { PlaceSeedModule } from './place/place-seed.module';
+
 @Module({
   imports: [
+    PlaceSeedModule,
     CitySeedModule,
     RegionSeedModule,
     RoleSeedModule,

@@ -51,7 +51,7 @@ export enum BritghtnessEnum {
   bright = 'bright',
 }
 
-interface Links {
+export interface Links {
   facebook?: string;
   instagram?: string;
   website?: string;

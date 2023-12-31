@@ -10,8 +10,13 @@ import {
 import { PlacesService } from './places.service';
 import { CreatePlaceDto } from './dto/create-place.dto';
 import { UpdatePlaceDto } from './dto/update-place.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('places')
+@ApiTags('Places')
+@Controller({
+  path: 'places',
+  version: '1',
+})
 export class PlacesController {
   constructor(private readonly placesService: PlacesService) {}
 

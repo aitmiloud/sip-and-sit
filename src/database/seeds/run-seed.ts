@@ -1,4 +1,5 @@
 import { NestFactory } from '@nestjs/core';
+import { PlaceSeedService } from './place/place-seed.service';
 import { CitySeedService } from './city/city-seed.service';
 import { RegionSeedService } from './region/region-seed.service';
 import { RoleSeedService } from './role/role-seed.service';
@@ -17,6 +18,8 @@ const runSeed = async () => {
   await app.get(RegionSeedService).run();
 
   await app.get(CitySeedService).run();
+
+  await app.get(PlaceSeedService).run();
 
   await app.close();
 };
