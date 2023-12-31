@@ -9,8 +9,14 @@ import { RoleSeedModule } from './role/role-seed.module';
 import { StatusSeedModule } from './status/status-seed.module';
 import { UserSeedModule } from './user/user-seed.module';
 
+import { RegionSeedModule } from './region/region-seed.module';
+
+import { CitySeedModule } from './city/city-seed.module';
+
 @Module({
   imports: [
+    CitySeedModule,
+    RegionSeedModule,
     RoleSeedModule,
     StatusSeedModule,
     UserSeedModule,
