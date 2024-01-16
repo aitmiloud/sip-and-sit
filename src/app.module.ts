@@ -28,6 +28,7 @@ import { AllConfigType } from './config/config.type';
 import { SessionModule } from './session/session.module';
 import { MailerModule } from './mailer/mailer.module';
 import { PlacesModule } from './places/places.module';
+import { CitiesModule } from './cities/cities.module';
 
 @Module({
   imports: [
@@ -87,6 +88,7 @@ import { PlacesModule } from './places/places.module';
     MailerModule,
     HomeModule,
     PlacesModule,
+    CitiesModule,
   ],
 })
 export class AppModule {}
