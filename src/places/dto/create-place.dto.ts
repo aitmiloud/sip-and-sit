@@ -18,74 +18,74 @@ export class CreatePlaceDto {
   @ApiProperty({ example: 'Place name' })
   @Transform(lowerCaseTransformer)
   @IsNotEmpty()
-  name: string | null;
+  name: string;
 
   @ApiProperty({ example: 'Place address' })
   @IsNotEmpty()
-  address: string | null;
+  address: string;
 
   @ApiProperty({ type: City })
   @Validate(IsExist, ['City', 'id'], {
     message: 'cityNotExists',
   })
-  city?: City | null;
+  city?: City;
 
   @ApiProperty({
     type: InternetSpeedEnum,
     enum: InternetSpeedEnum,
     example: InternetSpeedEnum.average,
   })
-  internetSpeed?: InternetSpeedEnum | null;
+  internetSpeed?: InternetSpeedEnum;
 
   @ApiProperty({
     type: PowerOutletEnum,
     enum: PowerOutletEnum,
     example: PowerOutletEnum.adequate,
   })
-  powerOutlet?: PowerOutletEnum | null;
+  powerOutlet?: PowerOutletEnum;
 
   @ApiProperty({
     type: SeatingEnum,
     enum: SeatingEnum,
     example: SeatingEnum.average,
   })
-  seating?: SeatingEnum | null;
+  seating?: SeatingEnum;
 
   @ApiProperty({
     type: NoiseLevelEnum,
     enum: NoiseLevelEnum,
     example: NoiseLevelEnum.average,
   })
-  noiseLevel?: NoiseLevelEnum | null;
+  noiseLevel?: NoiseLevelEnum;
 
   @ApiProperty({
     type: CrowdLevelEnum,
     enum: CrowdLevelEnum,
     example: CrowdLevelEnum.average,
   })
-  crowdLevel?: CrowdLevelEnum | null;
+  crowdLevel?: CrowdLevelEnum;
 
   @ApiProperty({
     type: BritghtnessEnum,
     enum: BritghtnessEnum,
     example: BritghtnessEnum.average,
   })
-  brightness?: BritghtnessEnum | null;
+  brightness?: BritghtnessEnum;
 
   @ApiProperty({ example: false })
-  hasSmokingArea?: boolean | null;
+  hasSmokingArea?: boolean;
 
   @ApiProperty({ example: false })
-  hasParking?: boolean | null;
+  hasParking?: boolean;
 
   @ApiProperty({ example: false })
-  hasAirConditioning?: boolean | null;
+  hasAirConditioning?: boolean;
 
   @ApiProperty({ example: '-12.123456' })
-  latitude?: string | null;
+  latitude?: number;
 
   @ApiProperty({ example: '12.123456' })
-  longitude?: string | null;
+  longitude?: number;
 
   @ApiProperty({
     example: { type: 'Point', coordinates: [-12.123456, 12.123456] },
@@ -96,5 +96,5 @@ export class CreatePlaceDto {
   };
 
   @ApiProperty({ example: { facebook: 'https://facebook.com', instagram: '' } })
-  links?: Links | null;
+  links?: Links;
 }
