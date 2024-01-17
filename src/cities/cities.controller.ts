@@ -3,13 +3,13 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
+  HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { CitiesService } from './cities.service';
 import { CreateCityDto } from './dto/create-city.dto';
-import { UpdateCityDto } from './dto/update-city.dto';
+import { SearchCityDto } from './dto/search-city.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Cities')
@@ -30,18 +30,9 @@ export class CitiesController {
     return this.citiesService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.citiesService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCityDto: UpdateCityDto) {
-    return this.citiesService.update(+id, updateCityDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.citiesService.remove(+id);
+  @Get('search/:name')
+  @HttpCode(HttpStatus.OK)
+  findByName(@Param() searchCityDto: SearchCityDto) {
+    return this.citiesService.findByName(searchCityDto.name);
   }
 }

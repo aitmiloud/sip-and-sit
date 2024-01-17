@@ -22,6 +22,19 @@ export class CitiesService {
     return cities;
   }
 
+  /**
+   * Search for a city by name using the query builder and the 'like' operator
+   * @param name
+   * @returns Promise<City[]>
+   */
+  findByName = async (name: string): Promise<City[]> => {
+    const cities = await this.cityRepository
+      .createQueryBuilder('city')
+      .where('city.name like :name', { name: `%${name}%` })
+      .getMany();
+    return cities;
+  };
+
   findOne(id: number) {
     return `This action returns a #${id} city`;
   }

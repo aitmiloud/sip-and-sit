@@ -1990,6 +1990,7 @@ export class CitySeedService {
       ];
       const formatedCities = transformArray(cities);
       for (const city of formatedCities) {
+        city.name = city.name.toLowerCase();
         await this.repository.save(city);
       }
     }
