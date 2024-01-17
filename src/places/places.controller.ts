@@ -6,10 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { PlacesService } from './places.service';
 import { CreatePlaceDto } from './dto/create-place.dto';
 import { UpdatePlaceDto } from './dto/update-place.dto';
+import { SearchPlaceDto } from './dto/search-place.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Places')
@@ -28,6 +30,11 @@ export class PlacesController {
   @Get()
   findAll() {
     return this.placesService.findAll();
+  }
+
+  @Get('search')
+  findWithFilters(@Query() searchPlaceDto: SearchPlaceDto) {
+    return this.placesService.getPlacesWithFilters(searchPlaceDto);
   }
 
   @Get(':id')
